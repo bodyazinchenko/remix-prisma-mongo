@@ -711,6 +711,44 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+:root {
+  --hs-links: 48 100%;
+  --color-foreground: hsl(0, 0%, 100%);
+  --color-background: hsl(278, 73%, 19%);
+  --color-links: hsl(var(--hs-links) 50%);
+  --color-links-hover: hsl(var(--hs-links) 45%);
+  --color-border: hsl(277, 85%, 38%);
+  --color-invalid: hsl(356, 100%, 71%);
+  --gradient-background: radial-gradient(
+    circle,
+    rgba(152, 11, 238, 1) 0%,
+    rgba(118, 15, 181, 1) 35%,
+    rgba(58, 13, 85, 1) 100%
+  );
+  --font-body: -apple-system, "Segoe UI", Helvetica Neue, Helvetica,
+    Roboto, Arial, sans-serif, system-ui, "Apple Color Emoji",
+    "Segoe UI Emoji";
+  --font-display: baloo, var(--font-body);
+}
+
+[type="text"][aria-invalid="true"],
+[type="password"][aria-invalid="true"],
+[type="date"][aria-invalid="true"],
+[type="datetime"][aria-invalid="true"],
+[type="datetime-local"][aria-invalid="true"],
+[type="month"][aria-invalid="true"],
+[type="week"][aria-invalid="true"],
+[type="email"][aria-invalid="true"],
+[type="number"][aria-invalid="true"],
+[type="search"][aria-invalid="true"],
+[type="tel"][aria-invalid="true"],
+[type="time"][aria-invalid="true"],
+[type="url"][aria-invalid="true"],
+[type="color"][aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: var(--color-invalid);
+}
+
 .hover\:-translate-y-1:hover {
   --tw-translate-y: -0.25rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
