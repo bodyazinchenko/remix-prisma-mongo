@@ -1,10 +1,10 @@
 
 import { Link, useActionData } from "@remix-run/react";
 import { Layout } from '~/components/Layout'
-import type { ActionFunction } from "@remix-run/node";
-import { json } from '@remix-run/node';
+import type { ActionFunction, LoaderFunction } from "@remix-run/node";
+import { json, redirect } from '@remix-run/node';
 import { validateEmail, validateName, validatePassword } from '~/utils/validators.server'
-import { register } from "~/utils/auth.server";
+import { register, getUser } from "~/utils/auth.server";
 
 type ActionData = {
   error?: string;
@@ -21,6 +21,11 @@ type ActionData = {
     lastName: string;
   };
 };
+
+export const loader: LoaderFunction = async ({ request }) => {
+  // If there's already a user in the session, redirect to the home page
+  return (await getUser(request)) ? redirect('/') : null
+}
 
 export const action: ActionFunction = async ({ request }) => {
   const form = await request.formData();
