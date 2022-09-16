@@ -1,5 +1,5 @@
 
-import { Link, useActionData } from "@remix-run/react";
+import { Form, Link, useActionData } from "@remix-run/react";
 import { Layout } from '~/components/Layout'
 import type { ActionFunction, LoaderFunction } from "@remix-run/node";
 import { json, redirect } from '@remix-run/node';
@@ -70,7 +70,7 @@ export default function Signup() {
         <h2 className="text-5xl font-extrabold text-yellow-300">Welcome to Kudos!</h2>
         <p className="font-semibold text-slate-300">Sign Up To Give Some Praise!</p>
 
-        <form method="post" className="rounded-2xl bg-gray-200 p-6 w-96">
+        <Form method="post" className="rounded-2xl bg-gray-200 p-6 w-96">
           {actionData?.error && (
             <p
               className="font-semibold text-red-500"
@@ -150,7 +150,7 @@ export default function Signup() {
               value="Sign Up"
             />
           </div>
-        </form>
+        </Form>
       </div>
     </Layout>
   )
